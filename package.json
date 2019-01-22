@@ -1,0 +1,19 @@
+{
+  "name": "base-restful-service",
+  "description": "Demonstrates a basic RESTful service with guidelines",
+  "version": "1.0.0",
+  "scripts": {
+    "watch": "nodemon service.js | bunyan",
+    "start": "node service.js | bunyan"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "bunyan": "^1.8.12",
+    "dotenv": "^6.2.0",
+    "env-wrapper": "^1.0.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.6",
+    "mongoose-paginate": "^5.0.3"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,288 @@
+{
+	"info": {
+		"_postman_id": "e271a6df-2ab0-4dd8-b27e-ae84213abd3b",
+		"name": "Base Restful Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"data\": {\n\t\t\"name\": \"Blog\", \n\t\t\"description\": \"My Blog\", \n\t\t\"url\": \"http://mikefeldmeier.com\"\n\t}\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/api/v1/resources",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"resources"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create (Failed - Multiple Validation Errors)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"data\": {\n\t\t\"description\": \"My Blog\"\n\t}\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/api/v1/resources",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"resources"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Resources",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{HOST}}/api/v1/resources",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"resources"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Resources (Filtering)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{HOST}}/api/v1/resources?filter[name]=This+Item",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"resources"
+					],
+					"query": [
+						{
+							"key": "filter[name]",
+							"value": "This+Item"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Resources (Sorting)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{HOST}}/api/v1/resources?sort=name,description,-when",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"resources"
+					],
+					"query": [
+						{
+							"key": "sort",
+							"value": "name,description,-when"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Resources (Paging)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{HOST}}/api/v1/resources?page[page]=2&page[limit]=25",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"resources"
+					],
+					"query": [
+						{
+							"key": "page[page]",
+							"value": "2"
+						},
+						{
+							"key": "page[limit]",
+							"value": "25"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Detail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{HOST}}/api/v1/resources/5c477e045e162813a0972789",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"resources",
+						"5c477e045e162813a0972789"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Detail (404)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{HOST}}/api/v1/resources/5c477e045e162813a0970000",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"resources",
+						"5c477e045e162813a0970000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Replace",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"data\": {\n\t\t\"name\": \"Blog\", \n\t\t\"description\": \"My Blog (modified)\", \n\t\t\"url\": \"http://mikefeldmeier.com\"\n\t}\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/api/v1/resources/5c477e045e162813a0972789",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"resources",
+						"5c477e045e162813a0972789"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modify",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"data\": {\n\t\t\"$set\": { \"name\": \"Blog (Modified)\" }\n\t}\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/api/v1/resources/5c477e045e162813a0972789",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"resources",
+						"5c477e045e162813a0972789"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{HOST}}/api/v1/resources/5c477e045e162813a0972789",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"resources",
+						"5c477e045e162813a0972789"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
