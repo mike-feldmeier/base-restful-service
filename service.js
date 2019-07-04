@@ -7,7 +7,6 @@ const path = require('path')
 // Require user libraries...
 const bodyparser = require('body-parser')
 const bunyan = require('bunyan')
-const dotenv = require('dotenv')
 const envwrapper = require('env-wrapper')
 const express = require('express')
 const mongoose = require('mongoose')
@@ -20,7 +19,7 @@ const app = express()
 const logger = bunyan.createLogger({ name: self.name })
 
 // Bring in environment variables with defaults...
-dotenv.load()
+envwrapper.load()
 const databaseUrl = envwrapper.require('DATABASE_URL')
 const port = envwrapper.require('PORT', 4000)
 const routesPath = envwrapper.require('ROUTES_PATH', path.join(__dirname, 'routes'))
@@ -59,7 +58,7 @@ fs.readdirSync(routesPath)
 
 // Start HTTP Listener...
 app.listen(port, err => {
-  if(err) {
+  if (err) {
     logger.error(err, `Could not start the HTTP listener on port ${port}`)
   }
   else {
