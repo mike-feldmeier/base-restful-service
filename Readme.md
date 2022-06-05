@@ -84,3 +84,9 @@ Upon an error, the HTTP status will reflect a 4xx or 5xx status code, as well as
       }]
     }
 
+## Changelog
+
+|Version|Description|
+|---|---|
+|1.0.0|Initial Release|
+|1.0.1|Security refresh of package-lock|
