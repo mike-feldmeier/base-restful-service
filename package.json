@@ -1,7 +1,7 @@
 {
   "name": "base-restful-service",
   "description": "Demonstrates a basic RESTful service with guidelines",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "watch": "nodemon service.js | bunyan",
     "start": "node service.js | bunyan"
